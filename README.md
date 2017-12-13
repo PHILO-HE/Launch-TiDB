@@ -1,6 +1,6 @@
 This repository mainly includes the source code of Pd, TiKV and TiDB for building shared libraries.
 
-# build prerequisite
+## Build prerequisite
 
 1. build Rocksdb.
 
@@ -17,25 +17,25 @@ This repository mainly includes the source code of Pd, TiKV and TiDB for buildin
 
    https://www.rust-lang.org/en-US/other-installers.html
 
-# support SSM project
+## Support SSM project
 
   To enable TiDB in SSM (https://github.com/Intel-bigdata/SSM.git), you should run build_shared_libs.sh to generate three files with .so suffix under lib/ directory in this project.
 
   After build is completed, you should put libpd.so, libtikv.so and libtidb.so into {SSM_HOME}/lib.
   The libtikv.so is dynamically linked to librocksdb.so.5.6. So you should also build rocksdb as build prerequisite section guides on each host where TiKV is deployed.
 
-# run demo
+## Run demo
 
   Run compile.sh to compile the java code and run start.sh to start tidb.
 
-# deployment tips
+## Deployment tips
 
 1. unset http_proxy and https_proxy.
 
 2. Options for PD, TiKV and TiDB.
 
    The client-urls option for pd must be a http address and a hostname is not valid.
-   The addr option for tikv should be a ip address without starting with http.
+   The addr option for tikv should be an ip address without starting with http.
    The pd option for tikv and the path option for tidb can be either a hostname or an ip address.
    In the cluster situation, the client-url option for pd and the addr option for tikv should not be 127.0.0.1.
 
